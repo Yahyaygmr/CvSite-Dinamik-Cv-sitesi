@@ -1,0 +1,18 @@
+﻿@using EntityLayer.Concrete
+@model List<User>
+
+<div class="resume-section-content">
+    @foreach (var item in Model)
+    {
+        <h1 class="mb-0">
+            @item.UserName
+            <span class="text-info">@item.UserSurname</span>
+        </h1>
+        <div class="subheading mb-5">
+            @item.UserAdress
+            <a href="#">@item.UserMail</a>
+        </div>
+        <p class="lead mb-5">@item.UserDescription</p>
+    }
+
+</div>

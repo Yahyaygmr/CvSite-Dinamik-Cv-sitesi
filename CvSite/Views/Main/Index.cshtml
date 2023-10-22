@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CvLayout.cshtml";
+}
+
+<div class="container-fluid p-0">
+    <!-- About-->
+    <section class="resume-section" id="about">
+        <div class="resume-section-content">
+            @await Component.InvokeAsync("AboutList")
+            @await Component.InvokeAsync("SocialMediaList")
+        </div>
+    </section>
+    <hr class="m-0" />
+    <!-- Experience-->
+    <section class="resume-section" id="experience">
+        @await Component.InvokeAsync("ExperienceList")
+       
+    </section>
+    <hr class="m-0" />
+    <!-- Education-->
+    <section class="resume-section" id="education">
+        @await Component.InvokeAsync("EducationList")
+       
+    </section>
+    <hr class="m-0" />
+    <!-- Skills-->
+    <section class="resume-section" id="skills">
+        @await Component.InvokeAsync("SkillsList")
+       
+    </section>
+    <hr class="m-0" />
+    <!-- Interests-->
+    <section class="resume-section" id="interests">
+        @await Component.InvokeAsync("InterestsList")
+        
+    </section>
+    <hr class="m-0" />
+    <!-- Awards-->
+    <section class="resume-section" id="awards">
+        @await Component.InvokeAsync("CertificateList")
+       
+    </section>
+</div>

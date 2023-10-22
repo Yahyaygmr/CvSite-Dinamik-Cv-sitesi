@@ -1,0 +1,63 @@
+﻿@using EntityLayer.Concrete
+@model List<Certificate>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sort">#</th>
+                                <th scope="col" class="sort">Sertifika</th>
+                                <th scope="col" class="sort">Url</th>
+                                <th scope="col" class="sort">Tarih</th>
+                                <th scope="col">Sil</th>
+                                <th scope="col" class="sort">Düzenle</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>
+                                        @item.CertificateID
+                                    </th>
+                                    <td class="budget">
+                                        @item.CertificateName
+                                    </td>
+                                    <td class="budget">
+                                        @item.CertificateUrl
+                                    </td>
+                                    <td class="budget">
+                                        @item.CertificateDate.ToShortDateString()
+                                    </td>
+                                    <td>
+                                        <a href="/Certificate/DeleteCertificate/@item.CertificateID" class="btn btn-sm btn-danger" id="DeleteBtn"
+                                           onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
+                                    </td>
+                                    <td>
+                                        <a href="/Certificate/EditCertificate/@item.CertificateID" class="btn btn-sm btn-success">Güncelle</a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <a href="/Certificate/AddCertificate/" class="btn btn-primary">+ Sertifika Ekle</a>
+        </div>
+    </div>
+</div>
+

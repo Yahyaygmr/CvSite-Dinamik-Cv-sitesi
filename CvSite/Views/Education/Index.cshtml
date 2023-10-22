@@ -1,0 +1,62 @@
+﻿@using EntityLayer.Concrete
+@model List<Education>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sort">#</th>
+                                <th scope="col" class="sort">Okul</th>
+                                <th scope="col" class="sort">Bölüm</th>
+                                <th scope="col" class="sort">Tarih</th>
+                                <th scope="col">Sil</th>
+                                <th scope="col" class="sort">Düzenle</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>
+                                        @item.EducationID
+                                    </th>
+                                    <td class="budget">
+                                        @item.SchoolName
+                                    </td>
+                                    <td class="budget">
+                                        @item.Part
+                                    </td>
+                                    <td class="budget">
+                                        @item.EducationDate
+                                    </td>
+                                    <td>
+                                        <a href="/Education/DeleteEducation/@item.EducationID" class="btn btn-sm btn-danger" id="DeleteBtn"
+                                           onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
+                                    </td>
+                                    <td>
+                                        <a href="/Education/EditEducation/@item.EducationID" class="btn btn-sm btn-success">Güncelle</a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <a href="/Education/AddEducation/" class="btn btn-primary">+ Eğitim Ekle</a>
+        </div>
+    </div>
+</div>

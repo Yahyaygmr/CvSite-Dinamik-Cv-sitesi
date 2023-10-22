@@ -1,0 +1,17 @@
+﻿@model EntityLayer.Concrete.Hobby
+@{
+    ViewData["Title"] = "AddHobby";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    @using (Html.BeginForm("AddHobby", "Hobby", FormMethod.Post))
+    {
+        <br />
+        @Html.Label("Hobi")
+        @Html.TextBoxFor(x=>x.HobbyDescription, new {@class = "form-control"})
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+        <button type="reset" class="btn btn-danger">İptal</button>
+    }
+</div>

@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Certificate
+@{
+    ViewData["Title"] = "AddCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    @using (Html.BeginForm("AddCertificate", "Certificate", FormMethod.Post))
+    {
+        <br />
+        @Html.Label("Sertifika Adı")
+        @Html.TextBoxFor(x=>x.CertificateName, new {@class = "form-control"})
+        <br />
+        @Html.Label("Url")
+        @Html.TextBoxFor(x=>x.CertificateUrl, new {@class = "form-control"})
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x=>x.CertificateDate, new {@class = "form-control"})
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+        <button type="reset" class="btn btn-danger">İptal</button>
+    }
+</div>

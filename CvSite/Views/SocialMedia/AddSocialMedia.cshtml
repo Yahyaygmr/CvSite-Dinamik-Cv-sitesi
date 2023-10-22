@@ -1,0 +1,22 @@
+﻿@model EntityLayer.Concrete.SocialMedia
+@{
+    ViewData["Title"] = "AddSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card-body">
+    @using (Html.BeginForm("AddSocialMedia", "SocialMedia", FormMethod.Post))
+    {
+        <br />
+        @Html.Label("Başlık")
+        @Html.TextBoxFor(x=>x.SocialMediaTitle, new {@class = "form-control"})
+        <br />
+        @Html.Label("İkon")
+        @Html.TextBoxFor(x=>x.SocialMediaIcon, new {@class = "form-control"})
+        <br />
+        @Html.Label("Url")
+        @Html.TextBoxFor(x=>x.SocialMediaUrl, new {@class = "form-control"})
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+        <button type="reset" class="btn btn-danger">İptal</button>
+    }
+</div>

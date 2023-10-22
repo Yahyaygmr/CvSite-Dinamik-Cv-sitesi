@@ -1,0 +1,65 @@
+﻿@using EntityLayer.Concrete
+@model List<SocialMedia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <h2>Sosyal Medya Hesaplarım</h2>
+    <br />
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sort">#</th>
+                                <th scope="col" class="sort">Başlık</th>
+                                <th scope="col" class="sort">İkon</th>
+                                <th scope="col" class="sort">Url</th>
+                                <th scope="col">Sil</th>
+                                <th scope="col" class="sort">Düzenle</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>
+                                        @item.SocialMediaID
+                                    </th>
+                                    <td class="budget">
+                                        @item.SocialMediaTitle
+                                    </td>
+                                    <td class="budget">
+                                        @item.SocialMediaIcon
+                                    </td>
+                                    <td class="budget">
+                                        @item.SocialMediaUrl
+                                    </td>
+                                    <td>
+                                        <a href="/SocialMedia/DeleteSocialMedia/@item.SocialMediaID" class="btn btn-sm btn-danger" id="DeleteBtn"
+                                           onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
+                                    </td>
+                                    <td>
+                                        <a href="/SocialMedia/EditSocialMedia/@item.SocialMediaID" class="btn btn-sm btn-success">Güncelle</a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <a href="/SocialMedia/AddSocialMedia/" class="btn btn-primary">+ Sosyam Medya Hesabı Ekle</a>
+        </div>
+    </div>
+</div>
+

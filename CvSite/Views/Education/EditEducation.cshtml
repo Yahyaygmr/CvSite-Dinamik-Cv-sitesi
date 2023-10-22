@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Education
+@{
+    ViewData["Title"] = "EditEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card-body">
+    @using (Html.BeginForm("EditEducation", "Education", FormMethod.Post))
+    {
+        @Html.HiddenFor(x=>x.EducationID)
+        <br />
+        @Html.Label("Okul Adı")
+        @Html.TextBoxFor(x=>x.SchoolName, new {@class = "form-control"})
+        <br />
+        @Html.Label("Fakülte")
+        @Html.TextBoxFor(x=>x.Faculty, new {@class = "form-control"})
+        <br />
+        @Html.Label("Bölüm")
+        @Html.TextBoxFor(x=>x.Part, new {@class = "form-control"})
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x=>x.EducationDate, new {@class = "form-control"})
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+        <button type="reset" class="btn btn-danger">İptal</button>
+    }
+</div>
+
